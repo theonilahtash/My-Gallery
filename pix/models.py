@@ -37,3 +37,8 @@ class Image(models.Model):
     def save_image(self):
         self.save()
 
+    @classmethod
+    def days_pix(cls,date):
+        pix = cls.objects.filter(pub_date__date = date)
+        return pix
+

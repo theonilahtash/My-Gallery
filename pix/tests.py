@@ -1,5 +1,6 @@
 from django.test import TestCase
 from . models import Image,Category,Location
+import datetime as dt
 
 # Create your tests here.
 class LocationTestClass(TestCase):
@@ -37,3 +38,10 @@ class CategoryTestClass(TestCase):
         self.pet.save_category()
         all_objects = Category.objects.all()
         self.assertEqual(all_objects.categories,'pet')
+
+
+    def test_get_pix_by_date(self):
+        test_date = '2018-12-07'
+        date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
+        pix_by_date = Category.days_pix(date)
+        self.assertTrue(len(pix_by_date) == 0)
