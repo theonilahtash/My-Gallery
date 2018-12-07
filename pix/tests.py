@@ -6,8 +6,7 @@ class LocationTestClass(TestCase):
   
     # Set up method
     def setUp(self):
-        self.kapsabet= Location(name = 'Kapsabet', description ='County of Champions')
-
+        self.kapsabet= Location(name = 'Kapsabet')
     # Testing  instance
     def test_instance(self):
         self.assertTrue(isinstance(self.kapsabet,Location))
@@ -17,3 +16,12 @@ class LocationTestClass(TestCase):
         self.kapsabet.save_location()
         locations = Location.objects.all()
         self.assertTrue(len(locations) > 0)
+
+class CategoryTestClass(TestCase):
+    # Set up method
+    def setUp(self):
+        self.pet=Category(name = 'pet')
+
+    # Testing instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.pet,Category))    
