@@ -5,9 +5,9 @@
 
 <head>
     <meta charset="utf-8"> {% if title %}
-    <title>Personal Gallery - {{title}}</title>
+    <title>Gallery - {{title}}</title>
     {% else %}
-    <title> Personal Gallery </title>
+    <title>Gallery </title>
     {% endif %}
 
      {% block styles %} 
@@ -21,7 +21,7 @@
          {% include "navbar.html" %}
 
     {% block content %}
-    <h1>Photos for {{date|date:"l d-F Y"}}</h1> 
+    <h1>Gallery {{date|date:"l d-F Y"}}</h1> 
     {%endblock%}
 
      {% block scripts %}
