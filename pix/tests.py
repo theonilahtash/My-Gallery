@@ -31,3 +31,9 @@ class CategoryTestClass(TestCase):
         self.pet.save_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories) > 0)
+
+    # Testing display saved images
+    def test_display_all_objects_method(self):
+        self.pet.save_category()
+        all_objects = Category.objects.all()
+        self.assertEqual(all_objects.categories,'pet')
