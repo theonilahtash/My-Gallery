@@ -25,3 +25,9 @@ class CategoryTestClass(TestCase):
     # Testing instance
     def test_instance(self):
         self.assertTrue(isinstance(self.pet,Category))    
+
+    # Testing save method
+    def test_save_method(self):
+        self.pet.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)
