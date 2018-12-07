@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
-from .models import Article
+from .models import Image
 
 
 # Create your views here.
@@ -12,7 +12,7 @@ def gallery(request):
 
 def photos(request):
     date = dt.date.today()
-    photos = Article.todays_photos()
+    photos = Image.objects.all()
     return render(request, 'all-photos/today-photos.html', {"date": date,"photos":photos})
 
     convert_dates(dates)
