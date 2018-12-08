@@ -29,6 +29,8 @@ class Image(models.Model):
     category = models.ForeignKey(Category)
     location = models.ForeignKey(Location)
     pub_date = models.DateTimeField(auto_now_add=True)
+    gallery_image = models.ImageField(upload_to = 'gallery/')
+
 
 
     def __str__(self):
@@ -42,7 +44,7 @@ class Image(models.Model):
         pix = cls.objects.filter(pub_date__date = date)
         return pix
 
- @classmethod
+    @classmethod
     def search_by_title(cls,search_term):
         pix = cls.objects.filter(title__icontains=search_term)
         return pix
