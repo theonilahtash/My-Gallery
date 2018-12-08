@@ -15,26 +15,40 @@ def photos(request):
     photos = Image.objects.all()
     return render(request, 'all-photos/today-photos.html', {"date": date,"photos":photos})
 
-    convert_dates(dates)
-    # Function that gets weekday number for the dates.
-    day_number = dt.date.weekday(dates)
-    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Sarturday',"Sunday"]
 
-    # Returning the actual day of the week
-    day = days[day_number]
-    return day
+def search_results(request):
+  
+    if 'image' in request.GET and request.GET["image"]:
+        category = request.GET.get("image")
+        searched_categories = Image.search_image(category)
+        message = f"{category}"
 
-def past_days_photos(request,past_date):
-    try:
-        # Converts data from the string Url
-        date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
-    except ValueError:
-        # Raise 404 error when ValueError is thrown
-        raise Http404()
+        return render(request, 'all-photos/search.html',{"message":message,"images": searched_categories})
 
-    if date == dt.date.today():
-        return redirect(photos_of_day)
+    else:
+        message = " Found 0 images for the search term"
+        return render(request, 'all-photos/search.html',{"message":message})
 
-    return render(request,'all-photos/past-photos.html',{"date":date})
+#     convert_dates(dates)
+#     # Function that gets weekday number for the dates.
+#     day_number = dt.date.weekday(dates)
+#     days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Sarturday',"Sunday"]
+
+#     # Returning the actual day of the week
+#     day = days[day_number]
+#     return day
+
+# def past_days_photos(request,past_date):
+#     try:
+#         # Converts data from the string Url
+#         date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+#     except ValueError:
+#         # Raise 404 error when ValueError is thrown
+#         raise Http404()
+
+#     if date == dt.date.today():
+#         return redirect(photos_of_day)
+
+#     return render(request,'all-photos/past-photos.html',{"date":date})
 
       
