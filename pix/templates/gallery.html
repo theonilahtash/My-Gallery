@@ -2,10 +2,10 @@
 {%block content %}
 <div class="w3-container w3-center w3-animate-zoom">
 <h1>My Gallery</h1>
- {% for c in category %}
-  {{c.name}}
+ {% for category in category %}
+  {{category.name}}
   {% endfor %}
- {% for loc in location %} {{loc.name}} 
+ {% for location in location %} {{location.name}} 
  {% endfor %}
 </div>
 </div>

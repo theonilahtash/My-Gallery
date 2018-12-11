@@ -102,10 +102,8 @@ function CopyFunction() {
 
             <div class="modal-body">
                 {% for category in photo.category.all %}
+                {% endfor %} 
                 <p>{{ category.name }}</p>
-                {% endfor %} {% for location in photo.location.all %}
-                <p>{{ location.name }}</p>
-                {% endfor %}
             </div>
 
 

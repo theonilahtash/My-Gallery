@@ -18,20 +18,6 @@ def photos(request):
     location = Location.objects.all()
     print(category)
     photos = Image.objects.all()
-    # if 'location' in request.GET and request.GET['location']:
-    #     location = request.GET.get('location')
-    #     photos = Image.view_image(location)
-
-    #     return render(request, 'gallery.html', {'title': title, 'photos': photos})
-
-
-    # elif 'category' in request.GET and request.GET['category']:
-    #     photos = Image.image_cat(request.GET.get('category'))
-
-    #     return render(request, 'gallery.html', {'title': title, 'photos': photos})
-
-    #     return render(request, 'gallery.html',{'location': location, 'photos': photos, 'category': category})
-
     return render(request, 'all-photos/today-photos.html', {"date": date,"photos":photos, "category":category,"location":location})
 
 
@@ -70,7 +56,6 @@ def search_results(request):
         search_term = request.GET.get("image")
         searched_images = Image.search_by_category(search_term)
         message = f"{search_term}"
-
         return render(request, 'all-photos/search.html', {"message": message, "images": searched_images}) 
 
     else:
