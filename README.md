@@ -25,6 +25,21 @@ This is an application that allows users to search images using their categories
 * Google
 * Stock overflow
 * Bootstrap Documentation
+
+### Requirements
+* config==0.3.9
+* dj-database-url==0.5.0
+* Django==1.11
+* django-bootstrap3==10.0.1
+* django-bootstrap4==10.0.1
+* django-heroku==0.3.1
+* gunicorn==19.9.0
+* Pillow==5.2.0
+* Psycopg2==2.7.5
+* python-decouple==3.1
+* pytz==2018.5
+* whitenoise==3.3.1
+
 ### Support and contact details
 If any complication comes up when running this application please contact me on my gmail account **theonilahtash@gmail.com**
 #### License
