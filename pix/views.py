@@ -1,19 +1,38 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
-from .models import Image,Location
+from .models import Image,Location,Category
 
 
 # Create your views here.
 # def welcome(request):
-#     return render(request,'welcome.html')
+#     return render(request,'gallery.html')
 def gallery(request):
-    return render (request,'welcome.html')
+    category = Category.objects.all()
+    print(category)
+    return render (request,'gallery.html')
 
 def photos(request):
     date = dt.date.today()
+    category = Category.objects.all()
+    location = Location.objects.all()
+    print(category)
     photos = Image.objects.all()
-    return render(request, 'all-photos/today-photos.html', {"date": date,"photos":photos})
+    # if 'location' in request.GET and request.GET['location']:
+    #     location = request.GET.get('location')
+    #     photos = Image.view_image(location)
+
+    #     return render(request, 'gallery.html', {'title': title, 'photos': photos})
+
+
+    # elif 'category' in request.GET and request.GET['category']:
+    #     photos = Image.image_cat(request.GET.get('category'))
+
+    #     return render(request, 'gallery.html', {'title': title, 'photos': photos})
+
+    #     return render(request, 'gallery.html',{'location': location, 'photos': photos, 'category': category})
+
+    return render(request, 'all-photos/today-photos.html', {"date": date,"photos":photos, "category":category,"location":location})
 
 
 def convert_dates(dates):
