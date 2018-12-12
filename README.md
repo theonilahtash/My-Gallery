@@ -2,7 +2,7 @@
 ## Author
 Theonilah Owali
 ### Description
-This is an application that allows users to search images using their categories 
+This is an application that allows users to search images using their categories.
 
 ### User stories
 * You can view images.
@@ -20,6 +20,8 @@ This is an application that allows users to search images using their categories
 * Add a requirements.txt file with all the requirements
 * Add a Gunicorn to the requirements.txt
 * Add a runtime to specify the correct python version
+
+Live link to the site https://tash-gallery.herokuapp.com/today/
 
 ### Acknowledgements
 * Google
