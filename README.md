@@ -27,6 +27,8 @@ Live link to the site https://tash-gallery.herokuapp.com/today/
 * Google
 * Stock overflow
 * Bootstrap Documentation
+* Admin user name **moringaschool**
+* Admin password **theo@1234.talia**
 
 ### Requirements
 * config==0.3.9
